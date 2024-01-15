@@ -1,37 +1,33 @@
 
-##  Ansible Inventory  ##     [] {} =
+#  Ansible Inventory [] {} =
 
 
+Ansible stores information about its target systems in the file "inventory.txt"
 
-Ansible stores information about its target systems 
-in the file "inventory.txt"
-
-    - if you don't create a new inventory file, it uses
-      the default inventory at: /etc/ansible/hosts 
+If you don't create a new inventory file, it uses the default inventory at: /etc/ansible/hosts 
 
 
+Sample inventory file: <br>
+---------------------- <br>
+server1.company.com    <br>
+server2.company.com    <br>
 
-Sample inventory file:
-----------------------
-server1.company.com
-server2.company.com
+[group2] <br>
+server3.company.com    <br>
+server4.company.com    <br>
 
-[group2]
-server3.company.com
-server4.company.com
+[web] <br>
+server5.company.com    <br>
+server6.company.com    <br>
 
-[web]
-server5.company.com
-server6.company.com
-----------------------
 
 
 Assigning an alias to servers:
 -------------------------------------
-web  ansible_host=server1.company.com
-db   ansible_host=server2.company.com
-web2 ansible_host=server3.company.com
--------------------------------------
+**web**  ansible_host=server1.company.com    <br>
+**db**   ansible_host=server2.company.com    <br>
+**web2** ansible_host=server3.company.com    <br>
+
 
 
 Other inventory parameters:
@@ -48,60 +44,60 @@ web ansible_host=server1.company.com ansible_connection=ssh ansible_user=root
 
 
 
-##  Sample Inventory Files  ##
-
+##  Sample Inventory Files
+<br>
 ----------  Basic  ----------  
 
-# Web Servers
-web1 ansible_host=server1.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Password123!
-web2 ansible_host=server2.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Password123!
-web3 ansible_host=server3.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Password123!
+### Web Servers
+**web1** ansible_host=server1.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Password123! <br>
+**web2** ansible_host=server2.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Password123! <br>
+**web3** ansible_host=server3.company.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Password123! <br>
 
-# Database Servers
-db1 ansible_host=server4.company.com ansible_connection=winrm ansible_user=administrator ansible_password=Password123!
+### Database Servers
+**db1** ansible_host=server4.company.com ansible_connection=winrm ansible_user=administrator ansible_password=Password123!
 
-[web_servers]
-web1
-web2
-web3
+**[web_servers]**  <br>
+web1           <br>
+web2           <br>
+web3           <br>
 
-[db_servers]
-db1
+**[db_servers]**  <br>
+db1           <br>
 
-[all_servers:children]
-web_servers
-db_servers
+**[all_servers:children]** <br>
+web_servers            <br>
+db_servers             <br>
 
 
 ----------  More Advanced  ----------
 
-# Web Servers
-web_node1 ansible_host=web01.xyz.com ansible_connection=winrm ansible_user=administrator ansible_password=Win$Pass
-web_node2 ansible_host=web02.xyz.com ansible_connection=winrm ansible_user=administrator ansible_password=Win$Pass
-web_node3 ansible_host=web03.xyz.com ansible_connection=winrm ansible_user=administrator ansible_password=Win$Pass
+### Web Servers
+**web_node1** ansible_host=web01.xyz.com ansible_connection=winrm ansible_user=administrator ansible_password=Win$Pass    <br>
+**web_node2** ansible_host=web02.xyz.com ansible_connection=winrm ansible_user=administrator ansible_password=Win$Pass    <br>
+**web_node3** ansible_host=web03.xyz.com ansible_connection=winrm ansible_user=administrator ansible_password=Win$Pass    <br>
 
-# DB Servers
-sql_db1 ansible_host=sql01.xyz.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Lin$Pass
-sql_db2 ansible_host=sql02.xyz.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Lin$Pass
+### DB Servers
+**sql_db1** ansible_host=sql01.xyz.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Lin$Pass    <br>
+**sql_db2** ansible_host=sql02.xyz.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=Lin$Pass    <br>
 
-[db_nodes]
-sql_db1
-sql_db2
+**[db_nodes]** <br>
+sql_db1    <br>
+sql_db2    <br>
 
-[web_nodes]
-web_node1
-web_node2
-web_node3
+**[web_nodes]** <br>
+web_node1    <br>
+web_node2    <br>
+web_node3    <br>
 
-[boston_nodes]
-sql_db1
-web_node1
+**[boston_nodes]** <br>
+sql_db1        <br>
+web_node1      <br>
 
-[dallas_nodes]
-sql_db2
-web_node2
-web_node3
+**[dallas_nodes]** <br>
+sql_db2        <br>
+web_node2      <br>
+web_node3      <br>
 
-[us_nodes:children]
-boston_nodes
-dallas_nodes
+**[us_nodes:children]** <br>
+boston_nodes        <br>
+dallas_nodes        <br>
