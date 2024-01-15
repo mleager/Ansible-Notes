@@ -1,0 +1,29 @@
+{
+    "_meta": {
+        "hostvars": {
+            "172.20.1.100": {
+                "ansible_ssh_pass": "Passw0rd",
+                "ansible_ssh_user": "root",
+                "host_specific_var": "foo"
+            },
+            "172.20.1.101": {
+                "ansible_ssh_pass": "Passw0rd",
+                "ansible_ssh_user": "root",
+                "host_specific_var": "bar"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "ungrouped",
+            "web"
+        ]
+    },
+    "ungrouped": {},
+    "web": {
+        "hosts": [
+            "172.20.1.100",
+            "172.20.1.101"
+        ]
+    }
+}

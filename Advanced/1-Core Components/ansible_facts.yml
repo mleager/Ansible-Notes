@@ -1,0 +1,18 @@
+# Print all Host's system info
+---
+- hosts: all
+  tasks:
+    - debug:
+        var: ansible_facts
+
+# Get distribution version Facts from web1
+- CLI:
+    - ansible -i inventory -m setup web1 | grep distribution_version
+
+# Get local machine's architecture
+- CLI:
+    - ansible -m setup localhost | grep architecture
+
+# Get OS of db1 defined in another folder's inventory file
+- CLI:
+    - ansible -i web/inventory -m setup db1 | grep distribution

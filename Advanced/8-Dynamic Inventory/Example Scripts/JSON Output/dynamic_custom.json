@@ -1,0 +1,35 @@
+{
+    "_meta": {
+        "hostvars": {
+            "172.20.1.101": {
+                "ansible_ssh_pass": "Passw0rd",
+                "ansible_ssh_user": "root",
+                "host_specific_var": "custom1"
+            },
+            "172.20.1.102": {
+                "ansible_ssh_pass": "Passw0rd",
+                "ansible_ssh_user": "root",
+                "host_specific_var": "custom2"
+            },
+            "172.20.1.103": {
+                "ansible_ssh_pass": "Passw0rd",
+                "ansible_ssh_user": "root",
+                "host_specific_var": "custom3"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "group",
+            "ungrouped"
+        ]
+    },
+    "group": {
+        "hosts": [
+            "172.20.1.101",
+            "172.20.1.102",
+            "172.20.1.103"
+        ]
+    },
+    "ungrouped": {}
+}

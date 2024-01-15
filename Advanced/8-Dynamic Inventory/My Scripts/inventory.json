@@ -1,0 +1,23 @@
+// Group Variables
+{
+    "web": {
+        "hosts": [
+            "web1",
+            "web2"
+        ],
+        "vars": {
+            "http_port": 80,
+            "max_connections": 100
+        }
+    },
+    "db": {
+        "hosts": [
+            "db1",
+            "db2"
+        ],
+        "vars": {
+            "db_port": 3306,
+            "db_name": "ecomdb"
+        }
+    }
+}

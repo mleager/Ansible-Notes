@@ -1,0 +1,11 @@
+# Docs:
+#
+# https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_delegation.html
+
+hosts: app_servers
+tasks:
+  - name: Gather facts from DB servers
+    setup:
+    delegate_to: "{{ item }}"
+    delegate_facts: true
+    loop: "{{ groups['dbservers'] }}"

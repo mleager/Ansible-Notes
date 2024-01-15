@@ -1,0 +1,38 @@
+// Inventory using OOP
+{
+    "web": {
+        "hosts": [
+            "webserver1",
+            "webserver2"
+        ],
+        "vars": {
+            "http_port": 80,
+            "max_connections": 100
+        }
+    },
+    "db": {
+        "hosts": [
+            "dbserver1"
+        ],
+        "vars": {
+            "db_port": 3306,
+            "db_name": "mydb"
+        }
+    },
+    "_meta": {
+        "hostvars": {
+            "webserver1": {
+                "ansible_user": "user1",
+                "ansible_ssh_pass": "password1"
+            },
+            "webserver2": {
+                "ansible_user": "user2",
+                "ansible_ssh_pass": "password2"
+            },
+            "dbserver1": {
+                "ansible_user": "user3",
+                "ansible_ssh_pass": "password3"
+            }
+        }
+    }
+}

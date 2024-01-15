@@ -1,0 +1,15 @@
+all:
+  children:
+    group:
+      hosts:
+        172.20.1.109:
+          ansible_ssh_pass: Passw0rd
+          ansible_ssh_user: root
+          ec2_region: ca-central-1
+          ec2_state: Running
+        172.20.1.110:
+          ansible_ssh_pass: Passw0rd
+          ansible_ssh_user: root
+          ec2_region: us-east-1
+          ec2_state: Running
+    ungrouped: {}
